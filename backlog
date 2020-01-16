@@ -1,0 +1,33 @@
+Gallerie photos backlog
+
+disposition des images en catégories et albums;
+informations d'image stockées dans la base de données;
+les utilisateurs connectés peuvent télécharger des images avec une interface Web/mobile ;
+support multimédia complet (lecture vidéo, audio);
+création de miniatures et de photos de taille intermédiaire;
+fonction de recherche;
+dernier ajouté;
+image aléatoire;
+gestion des utilisateurs (galeries privées, groupes);
+intégration de la gestion des utilisateurs avec divers BDDs;
+légende, titre, description et champs définis par l'utilisateur pour chaque image (consultable);
+installation facile (installateur fourni);
+commentaires des utilisateurs;
+visionneuse de diaporamas;
+toutes les fonctionnalités personnalisables avec interface web (section admin);
+système de modèles;
+appartenance des utilisateurs à plusieurs groupes;
+rotation de l'image;
+téléchargement multi-pic;
+l'option de choisir la hauteur ou la largeur maximale pour les vignettes aidera à créer des rangées et des colonnes de vignettes plus belles;
+possibilité d'afficher une pellicule cliquable de vignettes sous l'affichage de l'image;
+option pour afficher les albums de premier niveau d'une catégorie au lieu de simplement des statistiques de la catégorie;
+possibilité d'activer OU de désactiver l'affichage de l'icône "Privé" à un utilisateur non connecté / non privilégié;
+option de titre pour trier dans les albums;
+fonction d'aide en ligne pour les pages d'administration;
+plugin-API (facebook, instagram);
+L'anglais comme langue principale;
+albums protégés par mot de passe;
+plus de champs de profil utilisateur configurables par l'administrateur;
+redimensionnement de l'image lors du téléchargement;
+recherche avancée (opérateurs booléens);
