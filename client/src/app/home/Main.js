@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { autologin } from '../../actions';
 import Picture from './Picture';
 
-const Main = ({ autologin }) => {
+const Main = ({ autologin, authState }) => {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const error = {};
@@ -24,12 +24,15 @@ const Main = ({ autologin }) => {
   useEffect(() => {
     setLoading(true);
     const fetchPosts = async () => {
-      const res = await axios.get('http://192.168.42.201:5000/expose');
+      const res = await axios.post(
+        'http://192.168.42.201:5000/expose',
+        authState
+      );
       setPosts(res.data);
       setLoading(false);
     };
     fetchPosts();
-  }, []);
+  }, [authState]);
 
   useEffect(() => {
     const token = localStorage.getItem('access_token');
@@ -83,11 +86,22 @@ const Main = ({ autologin }) => {
                 console.log(post.title);
                 return (
                   <div key={post.name} class='column is-mobile is-one-quarter'>
-                    <Picture src={post.name} message={post.name} />
+                    <Picture
+                      src={post.file}
+                      title={post.title}
+                      owner={post.owner}
+                      message={post.description}
+                    />
                   </div>
                 );
               })}
             </div>
+          )}
+          {pagePost.length == 0 && (
+            <>
+              <br />
+              <div className='title container'>No picture for you</div>
+            </>
           )}
         </div>
         <div className='section'>
@@ -220,4 +234,8 @@ const Main = ({ autologin }) => {
   );
 };
 
-export default connect(null, { autologin })(Main);
+const mapStateToProps = state => ({
+  authState: state.auth
+});
+
+export default connect(mapStateToProps, { autologin })(Main);

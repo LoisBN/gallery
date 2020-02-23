@@ -80,6 +80,12 @@
   }
 }
 
+.own-card-content {
+  overflow: scroll;
+  height: 10%;
+  padding: 10%;
+}
+
 .loader-wrapper {
   position: absolute;
   top: 0;

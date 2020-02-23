@@ -1,33 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '../../assets/pictures/batman.png';
 import { connect } from 'react-redux';
-import { logout } from '../../actions';
+import { logout, autologin } from '../../actions';
 import { Link } from 'react-router-dom';
 
 const Tabs = props => {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setLoading(false);
-  }, [props]);
-
-  const renderButtons = () => {
-    if (!loading) {
-      return props.authState.authenticated ? (
-        <button onClick={props.logout} className='button'>
-          <strong>Log out from {props.authState.username}</strong>
-        </button>
-      ) : (
-        <>
-          <Link to='/signup' className='button'>
-            <strong>Sign up</strong>
-          </Link>
-          <Link to='/login' className='button is-light'>
-            Log in
-          </Link>
-        </>
-      );
-    }
-    return <div>loading...</div>;
+  const renderButtons = param => {
+    return param ? (
+      <button onClick={props.logout} className='button'>
+        <strong>Log out from {props.authState.username}</strong>
+      </button>
+    ) : (
+      <>
+        <Link to='/signup' className='button'>
+          <strong>Sign up</strong>
+        </Link>
+        <Link to='/login' className='button is-light'>
+          Log in
+        </Link>
+      </>
+    );
   };
 
   return (
@@ -75,7 +67,9 @@ const Tabs = props => {
 
           <div className='navbar-end'>
             <div className='navbar-item'>
-              <div className='buttons'>{renderButtons()}</div>
+              <div className='buttons'>
+                {renderButtons(props.authState.authenticated)}
+              </div>
             </div>
           </div>
         </div>
@@ -88,4 +82,4 @@ const mapStateToProps = state => ({
   authState: state.auth
 });
 
-export default connect(mapStateToProps, { logout })(Tabs);
+export default connect(mapStateToProps, { logout, autologin })(Tabs);

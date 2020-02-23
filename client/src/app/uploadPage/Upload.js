@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react';
+import { connect } from 'react-redux';
 
 const Upload = props => {
   const [fileName, setFileName] = useState('No file uploaded');
   const inputFile = useRef(null);
+  console.log(props);
   return (
     <section class='hero is-fullheight'>
       <div class='hero-body'>
@@ -36,9 +38,12 @@ const Upload = props => {
                     description
                   </label>
                   <div class='control has-icons-left'>
-                    <textarea name='description' className='textarea'>
-                      write a description
-                    </textarea>
+                    <textarea
+                      required
+                      placeholder='write a description'
+                      name='description'
+                      className='textarea'
+                    />
                   </div>
                 </div>
                 <div id='file-js-example' class='file has-name'>
@@ -63,11 +68,10 @@ const Upload = props => {
                 </div>
                 <input
                   readOnly
-                  required='required'
-                  type='text'
+                  required
                   style={{ display: 'none' }}
-                  value={localStorage.getItem('access_token') || ''}
-                />
+                  name='access_token'
+                  value={props.authState.username}></input>
                 <br />
                 <div class='field'>
                   <button class='button is-success'>Upload</button>
@@ -81,4 +85,8 @@ const Upload = props => {
   );
 };
 
-export default Upload;
+const mapStateToProps = state => ({
+  authState: state.auth
+});
+
+export default connect(mapStateToProps)(Upload);
