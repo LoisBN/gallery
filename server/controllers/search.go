@@ -27,6 +27,6 @@ func (sc SearchController) Search(w http.ResponseWriter,req *http.Request) {
         return
     } 
     r := json.Unmarshal(bs,&hint)
-    fmt.Println(r)
+    fmt.Println("from search")
     fmt.Fprintln(w,"successfully send")
 }

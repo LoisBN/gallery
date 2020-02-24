@@ -1,6 +1,6 @@
 FROM node:alpine
 
-WORKDIR /app/client
+WORKDIR /go/src/app/client
 
 COPY ./package.json .
 RUN yarn

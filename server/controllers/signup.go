@@ -66,7 +66,7 @@ func (sc SignupController) Signup(w http.ResponseWriter,req *http.Request) {
         }
         
         x["password"] = string(ps)
-        x["friends"] = friends{user{"loisbibehenong@gmail.com","lolo","lolo"}}
+        x["friends"] = []interface{}
         x["groups"] = groups{}
         emailErr := map[string]interface{}{
             "message": "email already in use",

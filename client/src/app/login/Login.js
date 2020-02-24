@@ -76,6 +76,12 @@ const Signup = props => {
                     </span>
                   </div>
                 </div>
+                {props.authState.message === 'wrong username or password' && (
+                  <>
+                    <p style={{ color: 'red' }}>{props.authState.message}</p>
+                    <br />
+                  </>
+                )}
                 <div class='field'>
                   <button class='button is-success'>Login</button>
                 </div>
@@ -88,4 +94,8 @@ const Signup = props => {
   );
 };
 
-export default connect(null, { signin })(Signup);
+const mapStateToProps = state => ({
+  authState: state.auth
+});
+
+export default connect(mapStateToProps, { signin })(Signup);

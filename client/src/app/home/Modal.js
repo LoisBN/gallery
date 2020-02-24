@@ -3,18 +3,25 @@ import ReactDOM from 'react-dom';
 
 const Modal = props => {
   return (
-    <div id='myModal' class='picture-modal' onClick={props.onClick}>
-      <div className='section'>
-        <div className='container'>
-          <div class='modal-picture-body' onClick={e => e.stopPropagation()}>
-            <span class='close' onClick={props.onClick}>
-              &times;
-            </span>
-
-            <img width='500px' src={props.src} alt={props.alt} />
-            <p className='modal-desc'>{props.description}</p>
-          </div>
-        </div>
+    <div class='modal is-active' onClick={props.onClick}>
+      <div class='modal-background'></div>
+      <div class='modal-card' onClick={e => e.stopPropagation()}>
+        <header class='modal-card-head'>
+          <p class='modal-card-title'>{props.title}</p>
+          <button
+            class='delete'
+            aria-label='close'
+            onClick={props.onClick}></button>
+        </header>
+        <section class='modal-card-body'>
+          <img width='500px' src={props.src} alt={props.alt} />
+          <p>{props.description}</p>
+        </section>
+        <footer class='modal-card-foot'>
+          <button onClick={props.onClick} class='button'>
+            Quit
+          </button>
+        </footer>
       </div>
     </div>
   );

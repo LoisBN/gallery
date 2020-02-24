@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { signup } from '../../actions';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
@@ -26,12 +26,17 @@ const Signup = props => {
     console.log(props);
   };
 
+  useEffect(() => {
+    if (props.authState.authenticated) {
+      props.history.push('/');
+    }
+  }, [props.authState.authenticated]);
+
   const handleSubmit = e => {
     e.preventDefault();
     const formValues = { email, username, password };
     props.signup(formValues);
     console.log(formValues);
-    props.history.push('/');
   };
   return (
     <section class='hero is-fullheight'>
@@ -59,6 +64,9 @@ const Signup = props => {
                       <i class='fa fa-envelope'></i>
                     </span>
                   </div>
+                  {props.authState.message === 'email already in use' && (
+                    <p style={{ color: 'red' }}>{props.authState.message}</p>
+                  )}
                 </div>
                 <div class='field'>
                   <label for='' class='label'>
@@ -78,6 +86,9 @@ const Signup = props => {
                       <i class='fas fa-user-circle'></i>
                     </span>
                   </div>
+                  {props.authState.message === 'username already in use' && (
+                    <p style={{ color: 'red' }}>{props.authState.message}</p>
+                  )}
                 </div>
                 <div class='field'>
                   <label for='' class='label'>
@@ -110,4 +121,8 @@ const Signup = props => {
   );
 };
 
-export default connect(null, { signup })(Signup);
+const mapStateToProps = state => ({
+  authState: state.auth
+});
+
+export default connect(mapStateToProps, { signup })(Signup);

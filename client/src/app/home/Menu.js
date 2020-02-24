@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { autologin } from '../../actions';
 
-const Menu = () => {
+const Menu = props => {
+  useEffect(() => {
+    props.autologin(localStorage.getItem('access_token'));
+  }, []);
   return (
     <div className='section container to-left has-background-light home-menu'>
       <aside class='container menu container'>
@@ -17,7 +22,7 @@ const Menu = () => {
         <p class='menu-label'>Administration</p>
         <ul class='menu-list'>
           <li>
-            <Link to='/'>Team Settings</Link>
+            <Link to='/search'>Search</Link>
           </li>
           <li>
             <Link to='/'>Manage Your Team</Link>
@@ -60,4 +65,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default connect(null, { autologin })(Menu);

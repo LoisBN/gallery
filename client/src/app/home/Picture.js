@@ -13,6 +13,7 @@ const Picture = props => {
           <Modal
             src={'http://192.168.42.201:5000/public/posts/' + props.src}
             description={props.message}
+            title={props.title}
             onClick={() => setModalActive(false)}
           />,
           document.querySelector('#modal')

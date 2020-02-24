@@ -5,6 +5,9 @@ import { logout, autologin } from '../../actions';
 import { Link } from 'react-router-dom';
 
 const Tabs = props => {
+  useEffect(() => {
+    props.autologin(localStorage.getItem('access_token'));
+  }, []);
   const renderButtons = param => {
     return param ? (
       <button onClick={props.logout} className='button'>

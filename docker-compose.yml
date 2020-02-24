@@ -1,0 +1,23 @@
+version: "3"
+services: 
+  react-server:
+    container_name: "react-node-server"
+    build: 
+      context: ./client    
+    ports: 
+    - "3000:3000"
+  go-server:
+    container_name: "server"
+    build: 
+      context: ./server
+    ports: 
+      - "5000:5000"
+  mongo:
+    container_name: "mongodb"
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ""
+      MONGO_INITDB_ROOT_PASSWORD: ""
