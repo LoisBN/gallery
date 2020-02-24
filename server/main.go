@@ -12,12 +12,14 @@ func main() {
 	sc := controllers.NewSignupController(getSession())
 	lc := controllers.NewLoginController(getSession())
 	uc := controllers.NewUploadController(getSession())
+	
 
 	http.HandleFunc("/users/signup", sc.Signup)
 	http.HandleFunc("/users/login", lc.Login)
 	http.HandleFunc("/upload", uc.Upload)
 	http.HandleFunc("/expose", uc.Expose)
 	http.HandleFunc("/users/account", lc.Autologin)
+	//http.HandleFunc("/search/",sac.Search)
 	http.Handle("/public/posts/", http.StripPrefix("/public/posts", http.FileServer(http.Dir("./public/posts/"))))
 	http.ListenAndServe(":5000", nil)
 }

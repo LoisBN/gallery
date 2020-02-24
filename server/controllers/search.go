@@ -9,6 +9,7 @@ import (
 	"gopkg.in/mgo.v2"
 )
 
+//SearchController : handle research
 type SearchController struct{
     session *mgo.Session
 }
