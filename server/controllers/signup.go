@@ -74,6 +74,7 @@ func (sc SignupController) Signup(w http.ResponseWriter,req *http.Request) {
         }
         err = sc.session.DB("gallery").C("users").Find(bson.M{"email":x["email"]}).One(nil)
         if err == nil {
+            w.WriteHeader(422)
             json.NewEncoder(w).Encode(&emailErr)
             return
         }
@@ -85,6 +86,7 @@ func (sc SignupController) Signup(w http.ResponseWriter,req *http.Request) {
         
         err = sc.session.DB("gallery").C("users").Find(bson.M{"username":x["username"]}).One(nil)
         if err == nil {
+            w.WriteHeader(422)
             json.NewEncoder(w).Encode(&usernameErr)
             return
         }
