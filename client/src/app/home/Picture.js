@@ -11,7 +11,7 @@ const Picture = props => {
       {modalActive &&
         ReactDOM.createPortal(
           <Modal
-            src={'http://192.168.42.201:5000/public/posts/' + props.src}
+            src={'/api/public/posts/' + props.src}
             description={props.message}
             title={props.title}
             onClick={() => setModalActive(false)}
@@ -28,7 +28,7 @@ const Picture = props => {
           }}>
           <figure class='image is-4by3'>
             <img
-              src={'http://192.168.42.201:5000/public/posts/' + props.src}
+              src={'/api/public/posts/' + props.src}
               alt='Placeholder image'
             />
           </figure>

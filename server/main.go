@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"time"
 
 	uuid "github.com/satori/go.uuid"
 	"golang.org/x/crypto/bcrypt"
@@ -33,15 +34,15 @@ func main() {
 }
 
 func getSession() *mgo.Session {
-	// info := &mgo.DialInfo{
-	// 	Addrs:    []string{hosts},
-	// 	Timeout:  60 * time.Second,
-	// 	Database: database,
-	// 	Username: username,
-	// 	Password: password,
-	// }
+	info := &mgo.DialInfo{
+		Addrs:    []string{hosts},
+		Timeout:  60 * time.Second,
+		Database: database,
+		Username: username,
+		Password: password,
+	}
 
-	s, err := mgo.Dial("mongodb://localhost")
+	s, err := mgo.DialWithInfo(info)
 	if err != nil {
 		fmt.Println("erreur mongo")
 	}
@@ -261,7 +262,7 @@ func Upload(w http.ResponseWriter,req *http.Request) {
     }
     defer nf.Close()
     nf.WriteString(string(bs))
-    http.Redirect(w,req,"http://192.168.42.201:3000",http.StatusSeeOther)
+    http.Redirect(w,req,"https://dev.openvers.com",http.StatusSeeOther)
 }
 
 func Expose(w http.ResponseWriter, req *http.Request) {

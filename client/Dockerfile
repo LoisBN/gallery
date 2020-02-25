@@ -1,8 +1,8 @@
-FROM node:alpine
+FROM node:alpine as builder
 
-WORKDIR /go/src/app/client
+WORKDIR /app/client
 
-COPY ./package.json .
+COPY ./package.json ./
 RUN yarn
 COPY . .
 

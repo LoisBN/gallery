@@ -24,10 +24,7 @@ const Main = ({ autologin, authState }) => {
   useEffect(() => {
     setLoading(true);
     const fetchPosts = async () => {
-      const res = await axios.post(
-        'http://192.168.42.201:5000/expose',
-        authState
-      );
+      const res = await axios.post('/api/expose', authState);
       setPosts(res.data);
       setLoading(false);
     };

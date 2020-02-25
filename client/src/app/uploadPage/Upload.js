@@ -12,7 +12,7 @@ const Upload = props => {
           <div class='columns is-centered'>
             <div class='column is-5-tablet is-5-desktop is-5-widescreen'>
               <form
-                action='http://192.168.42.201:5000/upload'
+                action='/api/upload'
                 encType='multipart/form-data'
                 method='POST'
                 class='box'>
