@@ -262,7 +262,7 @@ func Upload(w http.ResponseWriter,req *http.Request) {
     }
     defer nf.Close()
     nf.WriteString(string(bs))
-    http.Redirect(w,req,"https://dev.openvers.com",http.StatusSeeOther)
+    http.Redirect(w,req,"/",http.StatusSeeOther)
 }
 
 func Expose(w http.ResponseWriter, req *http.Request) {
