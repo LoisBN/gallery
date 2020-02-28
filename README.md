@@ -18,6 +18,8 @@ Use the npm install or yarn command to install dependencies for the react develo
 
 Use the command dep ensure to automatically install the dependencies of the go server
 
+If you have installed mongo locally you have to change the credidentials in the main.go file
+
 # Installation
 
 Make a git clone then install the dependencies as indicated above
