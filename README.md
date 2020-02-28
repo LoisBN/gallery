@@ -1,28 +1,32 @@
 # Gallery
 
-Gallerie photos pour stocker/arranger/visualiser ses photos
+Photo gallery to store / arrange / view your photos
 
-# Dépendances
+# Dependencies
 
-Avoir une version de go supérieure à go1.13.8, avoir une verision de node supérieur à la 8.12
-Installer les packets suivants:
+Have a version of go greater than go1.13.8, have a node version greater than 8.12
+Install the following packages:
 
 -github.com/satori/go.uuid
 -golang.org/x/crypto/bcrypt
 -gopkg.in/mgo.v2
 -gopkg.in/mgo.v2/bson
 
-Avec la command go get
+With the command go get
 
-Utiliser la commande npm install ou yarn pour installer les dépendances pour le serveur de développement react
+Use the npm install or yarn command to install dependencies for the react development server
 
-Utiliser la command dep ensure pour automatiquement installer les dépendances du serveur go
+Use the command dep ensure to automatically install the dependencies of the go server
 
 # Installation
 
-Faire un git clone puis installer les dépendances comme indiquer ci-dessus
-lancer le serveur avec un go run main.go dans le dossier serveur ou la version compilé avec un ./main
+Make a git clone then install the dependencies as indicated above
 
-### Avec Docker et Docker-Compose
+launch the server with a go run main.go in the server folder or the version compiled with a ./main
 
-faire la command docker-compose up dans le dossier racine du projet
+start the development server with an npm start or a yarn start
+
+
+### With Docker and Docker-Compose
+
+do the command docker-compose up in the root folder of the project
