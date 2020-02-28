@@ -5,14 +5,14 @@ Photo gallery to store / arrange / view your photos
 # Dependencies
 
 Have a version of go greater than go1.13.8, have a node version greater than 8.12
-Install the following packages:
+With the command go get install the following packages:
 
--github.com/satori/go.uuid
--golang.org/x/crypto/bcrypt
--gopkg.in/mgo.v2
--gopkg.in/mgo.v2/bson
-
-With the command go get
+<ul>
+<li>github.com/satori/go.uuid</li>
+<li>golang.org/x/crypto/bcrypt</li>
+<li>gopkg.in/mgo.v2</li>
+<li>gopkg.in/mgo.v2/bson</li>
+</ul>
 
 Use the npm install or yarn command to install dependencies for the react development server
 
