@@ -33,6 +33,6 @@ start the development server with an npm start or a yarn start
 
 do the command docker-compose up in the root folder of the project
 
-#Some pictures 
+# Some pictures 
 
 ![alt text](https://dev.openvers.com/api/public/posts/screen.png)
