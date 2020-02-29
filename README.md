@@ -35,4 +35,5 @@ do the command docker-compose up in the root folder of the project
 
 # Some pictures 
 
+![Acess the dev version here](https://dev.openvers.com)
 ![alt text](https://dev.openvers.com/api/public/posts/screen.png)
