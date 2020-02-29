@@ -35,4 +35,4 @@ do the command docker-compose up in the root folder of the project
 
 #Some pictures 
 
-![alt text](https://dev.openvers.com/api/public/posts/screen)
+![alt text](https://dev.openvers.com/api/public/posts/screen.png)
