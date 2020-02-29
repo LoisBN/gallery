@@ -35,5 +35,5 @@ do the command docker-compose up in the root folder of the project
 
 # Some pictures 
 
-[a access the dev version here (it's verion -1.0)](https://github.com/user/repo/blob/branch/other_file.md)
+[Access the dev version here (it's verion -1.0)](https://dev.openvers.com)
 ![alt text](https://dev.openvers.com/api/public/posts/screen.png)
